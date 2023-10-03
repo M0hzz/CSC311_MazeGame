@@ -12,6 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+/**
+ * The MovementController class works to set up movement for the android by using W,A,S,D
+ * for moving
+ */
 public class MovementController {
 
     private BooleanProperty wPressed = new SimpleBooleanProperty();

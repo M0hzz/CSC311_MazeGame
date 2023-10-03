@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ *  program HelloApplication is meant to load an android figure to move across a maze
+ */
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {

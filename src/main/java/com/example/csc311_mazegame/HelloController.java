@@ -16,6 +16,9 @@ import java.awt.event.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ *  HelloController sets up the scene builder for images ex. maze, android, car
+ */
 public class HelloController implements Initializable {
     @FXML
     public ImageView sprite;
@@ -39,6 +42,9 @@ public class HelloController implements Initializable {
     @FXML
     public ImageView car;
 
+    /**
+     * Class Car extends Jpanel draws a car as a figure to work similarly to the andriod
+     */
     class Car extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {

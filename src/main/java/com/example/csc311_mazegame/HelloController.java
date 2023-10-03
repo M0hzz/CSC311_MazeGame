@@ -1,10 +1,15 @@
 package com.example.csc311_mazegame;
 
+import javafx.animation.PathTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Polyline;
+import javafx.util.Duration;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -16,6 +21,9 @@ public class HelloController implements Initializable {
     public ImageView sprite;
     @FXML
     public ImageView maze;
+
+    @FXML
+    public ImageView robot1;
 
     @FXML
     public AnchorPane gamePane;
@@ -66,6 +74,37 @@ public class HelloController implements Initializable {
             g.fillPolygon(windshield);
         }
     }
+    @FXML
+    public void runMaze(ActionEvent actionEvent) {
+        //PathTransition
+        Polyline polyline  = new Polyline();
+        //Sets the coordinates
+        polyline.getPoints().addAll(new Double[]{
+                11.0,12.0,
+                50.0, 12.0,
+                50.0,-85.0,
+                249.0,-85.0,
+                249.0, -135.0,
+                295.0, -135.0,
+                295.0, 65.0,
+                347.0, 65.0,
+                347.0, -33.0,
+                450.0,-33.0,
+                450.0, -130.0,
+                500.0, -130.0,
+                500.0, 00.0,
+                530.0, 00.0
+        });
+
+        PathTransition transition = new PathTransition();
+        //Sets the node
+        transition.setNode(robot1);
+        transition.setPath(polyline);
+        //Sets the duration of the robot to make to the end.
+        transition.setDuration(Duration.seconds(8));
+        transition.play();
+    }
+
 }
 
 

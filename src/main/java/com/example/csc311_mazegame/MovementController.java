@@ -14,23 +14,29 @@ import javafx.scene.shape.Rectangle;
 
 /**
  * The MovementController class works to set up movement for the android by using W,A,S,D
- * for moving
+ * keys for moving
  */
 public class MovementController {
+
+    // booleanProperty is used to toggle T/F values, this case for W,A,S,D keys on activation
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
     private BooleanProperty sPressed = new SimpleBooleanProperty();
     private BooleanProperty dPressed = new SimpleBooleanProperty();
 
+    // functionality of allowing multiple keys to be pressed (W,A,S,D)
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
     private int movementVariable = 2;
 
+    // FXML annotations for member fields
     @FXML
     private ImageView sprite;
-
     @FXML
     private AnchorPane gamePane;
+
     private final Color targetColor = Color.WHITE;
+
+    // set member fields to be use-able in ImageView, and move in AnchorPane
     public void makeMovable(ImageView sprite, AnchorPane gamePane){
         this.sprite = sprite;
         this.gamePane = gamePane;
@@ -45,7 +51,9 @@ public class MovementController {
             }
         }));
     }
-
+    /*  AnimationTimer allows for the movement of image quickly through frames
+        this allows for the android to move in the maze
+     */
     AnimationTimer timer = new AnimationTimer() {
         @Override
         public void handle(long timestamp) {
@@ -69,7 +77,7 @@ public class MovementController {
             }
         }
     };
-
+    // SetOnKeyPressed sets key value to True to start movement
     private void movementkeys(){
         gamePane.setOnKeyPressed(e -> {
             if(e.getCode() == KeyCode.W) {
@@ -88,7 +96,7 @@ public class MovementController {
                 dPressed.set(true);
             }
         });
-
+    //SetOnKeyPressed sets key value to False to end movement
         gamePane.setOnKeyReleased(e ->{
             if(e.getCode() == KeyCode.W) {
                 wPressed.set(false);
@@ -107,6 +115,8 @@ public class MovementController {
             }
         });
     }
+
+    // works to allow figure (android) to move only within the white lines of the maze
     private boolean isValidMove(double nextX, double nextY) {
         int targetPixelX = (int) nextX;
         int targetPixelY = (int) nextY;

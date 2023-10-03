@@ -17,14 +17,12 @@ import javafx.scene.shape.Rectangle;
  * for moving
  */
 public class MovementController {
-
     private BooleanProperty wPressed = new SimpleBooleanProperty();
     private BooleanProperty aPressed = new SimpleBooleanProperty();
     private BooleanProperty sPressed = new SimpleBooleanProperty();
     private BooleanProperty dPressed = new SimpleBooleanProperty();
 
     private BooleanBinding keyPressed = wPressed.or(aPressed).or(sPressed).or(dPressed);
-
     private int movementVariable = 2;
 
     @FXML

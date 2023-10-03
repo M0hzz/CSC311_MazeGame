@@ -17,6 +17,7 @@ import javafx.scene.shape.Rectangle;
  * keys for moving
  */
 public class MovementController {
+    //test
 
     // booleanProperty is used to toggle T/F values, this case for W,A,S,D keys on activation
     private BooleanProperty wPressed = new SimpleBooleanProperty();

@@ -1,6 +1,7 @@
 module com.example.csc311_mazegame {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens com.example.csc311_mazegame to javafx.fxml;
